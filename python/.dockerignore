@@ -1,0 +1,16 @@
+.env
+.env.example
+.github
+.git
+.gitignore
+.vscode
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.DS_Store
+.idea
+
+docker_build_run.sh
+
+tests/
+
