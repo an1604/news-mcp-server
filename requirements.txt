@@ -2,3 +2,4 @@ python-dotenv
 newsapi-python
 langchain_openai
 langchain
+fastmcp
