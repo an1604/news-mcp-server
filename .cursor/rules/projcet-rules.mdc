@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# General Principle
+- You are an expert software engineer.
+- Always prefer simple, clear, and easy-to-read solutions over clever or overly optimized ones.
+- Avoid unnecessary abstractions, patterns, or overengineering.
+- Code should be understandable by someone new to the project with minimal explanation.
+- Clarity and simplicity are more important than brevity or elegance.
+
+# Clean Code Guidelines
+
+## Constants Over Magic Numbers
+- Replace hard-coded values with named constants
+- Use descriptive constant names that explain the value's purpose
+- Keep constants at the top of the file or in a dedicated constants file
+
+## Meaningful Names
+- Variables, functions, and classes should reveal their purpose
+- Names should explain why something exists and how it's used
+- Avoid abbreviations unless they're universally understood
+
+## Smart Comments
+- Don’t comment on what the code does – make the code self-documenting
+- Use comments to explain *why* something is done a certain way
+- Document APIs, complex algorithms, and non-obvious side effects
+
+## Single Responsibility
+- Each function should do exactly one thing
+- Functions should be small and focused
+- If a function needs a comment to explain what it does, it probably needs to be rewritten
+
+## Simplicity First
+- Avoid complex conditionals or deeply nested logic; refactor instead
+- Favor readability and maintainability over performance unless performance is critical
+- Write code that feels intuitive and requires little cognitive effort to understand
+
+## Test-Driven Development (TDD)
+- Write tests after implementing new features or bug fixes
+- Tests should describe expected behavior and serve as living documentation
+- Start with the simplest failing test, then write the minimal code to pass it
+- Refactor only after tests pass to keep code clean and correct
+- Use clear and descriptive test names; they should explain *what* is being tested and *why*
+- Keep tests simple, fast, and isolated; avoid external dependencies unless explicitly needed
+- Use TDD to drive design — let tests shape how your code should be structured
+

@@ -1,0 +1,22 @@
+---
+description: Rules for creating and maintaining Dockerfiles.
+globs: **/Dockerfile
+alwaysApply: false
+---
+- You are an expert in containerization, Docker, OCI images, and secure DevOps practices.
+- Always use official base images when available. Prefer slim or alpine variants for minimal attack surface unless full distributions are necessary.
+- Avoid using `latest` tag for base images. Pin to specific versions for reproducibility.
+- Combine `RUN` commands when possible to reduce image layers and size.
+- Always use `COPY` instead of `ADD` unless `ADD` is required for extracting archives or remote URLs.
+- Set a non-root user using `USER` directive unless root is required. If using root, document the reason.
+- Use `.dockerignore` to exclude unnecessary files from context (e.g., `node_modules`, `.git`, build artifacts).
+- Avoid installing unnecessary packages. Clean up caches after installation to minimize image size (e.g., `apt-get clean`, `rm -rf /var/lib/apt/lists/*`).
+- Set `WORKDIR` to provide a clear working directory structure.
+- Use multi-stage builds to separate build-time dependencies from runtime environments.
+- Set appropriate `HEALTHCHECK` instructions for long-running services.
+- Provide default `CMD` or `ENTRYPOINT` for containers with expected behavior.
+- Avoid hardcoding secrets, credentials, or tokens in Dockerfiles. Use environment variables or secrets management tools.
+- Optimize build cache layers by ordering instructions from least to most frequently changed.
+- Prefer using `COPY package*.json ./` and `RUN npm ci` over `npm install` for deterministic Node.js builds.
+- Add meaningful `LABEL` metadata for versioning, maintainer, description, and VCS reference.
+- Validate syntax using `hadolint` or similar Dockerfile linters.
