@@ -1,11 +1,6 @@
 import logging
 from typing import Dict, Any
 
-import sys
-import os  
-# Add the python directory to sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-
 from src.tools.search_news import search_news
 from src.services.llm import llm_service
 
