@@ -5,7 +5,7 @@ from newsapi.newsapi_client import NewsApiClient
 
 logger = logging.getLogger(__name__)
 
-def search_news(query: str, language: str = "en", page_size: int = 5) -> Dict[str, Any]:
+def search_news(query: str, language: str, page_size: int) -> Dict[str, Any]:
     """Search for recent news articles matching a specific query.
     
     Args:

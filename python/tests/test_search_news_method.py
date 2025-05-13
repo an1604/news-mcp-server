@@ -61,14 +61,14 @@ class TestSearchNews(unittest.TestCase):
     def test_missing_api_key(self, mock_config):
         mock_config.NEWSAPI_API_KEY = None
         
-        result = search_news("test query")
+        result = search_news("test query", "en", 5)
         
         self.assertIn("error", result)
         self.assertEqual(result["error"], "Configuration error")
         self.assertIn("NEWSAPI_API_KEY is required", result["message"])
     
     def test_empty_query(self):
-        result = search_news("")
+        result = search_news("", "en", 5)
         
         self.assertIn("error", result)
         self.assertEqual(result["error"], "Query parameter is required")
@@ -79,7 +79,7 @@ class TestSearchNews(unittest.TestCase):
         mock_newsapi.return_value = mock_client_instance
         mock_client_instance.get_everything.side_effect = Exception("API Error")
         
-        result = search_news("test query")
+        result = search_news("test query", "en", 5)
         
         self.assertIn("error", result)
         self.assertEqual(result["error"], "API error")
@@ -91,8 +91,8 @@ class TestSearchNews(unittest.TestCase):
         mock_newsapi.return_value = mock_client_instance
         mock_client_instance.get_everything.return_value = {"articles": []}
         
-        search_news("test", page_size=0)
-        search_news("test", page_size=101)
+        search_news("test", "en", 0)
+        search_news("test", "en", 101)
         
         calls = mock_client_instance.get_everything.call_args_list
         self.assertEqual(calls[0][1]["page_size"], 5)
