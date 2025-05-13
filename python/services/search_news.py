@@ -17,10 +17,12 @@ def search_news(query: str, language: str, page_size: int) -> Dict[str, Any]:
         A dictionary with a list of articles
     """
     if not query:
+        logger.error("Query parameter is required")
         return {"error": "Query parameter is required"}
     
     if page_size < 1 or page_size > 100:
-        page_size = 5
+        logger.error(f"Invalid page size: {page_size}")
+        return {"error": "Invalid page size", "message": "Page size must be between 1 and 100"}
     
     try:
         api_key = config.NEWSAPI_API_KEY
@@ -29,7 +31,6 @@ def search_news(query: str, language: str, page_size: int) -> Dict[str, Any]:
             return {"error": "Configuration error", "message": "NEWSAPI_API_KEY is required in environment variables"}
             
         newsapi = NewsApiClient(api_key=api_key)
-        
         logger.info(f"Fetching news for query: {query}")
         
         news_data = newsapi.get_everything(
