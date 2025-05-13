@@ -18,15 +18,15 @@ This repository contains a template for building a Model Context Protocol (MCP) 
 ## Prerequisites
 
 - Docker installed on your system
-- NewsAPI.org API key
-- LLM API key (provided separately)
+- NewsAPI.org API key (register for free at https://newsapi.org/)
+- OpenAI API key (for LLM functionality)
 
 ## Environment Variables
 
 The following environment variables are required:
 
 - `NEWS_API_KEY`: Your NewsAPI.org API key
-- `LLM_API_KEY`: Your LLM API key
+- `OPENAI_API_KEY`: Your OpenAI API key
 
 ## Building and Running
 

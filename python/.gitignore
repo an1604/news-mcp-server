@@ -1,5 +1,3 @@
 .env
 .pytest_cache
 __pycache__
-docker_build_run.sh
-mcp_news_assistant_spec.md
