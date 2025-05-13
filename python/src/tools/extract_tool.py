@@ -27,7 +27,7 @@ def extract_information_from_article(query: str, language: str = "en") -> Dict[s
             logger.error(f"Error searching for articles: {search_result['error']}")
             return search_result
         
-        articles = search_result.get("articles", [])
+        articles = search_result["articles"]
         if not articles:
             logger.warning(f"No articles found for query: {query}")
             return {"error": "No articles found", "message": f"No articles found for query: {query}"}
@@ -41,10 +41,10 @@ def extract_information_from_article(query: str, language: str = "en") -> Dict[s
             return {
                 "result": {
                     "fetched_article_title": title,
-                    "people": extracted_info.get("people", []),
-                    "organizations": extracted_info.get("organizations", []),
-                    "locations": extracted_info.get("locations", []),
-                    "key_quotes": extracted_info.get("key_quotes", [])
+                    "people": extracted_info["people"],
+                    "organizations": extracted_info["organizations"],
+                    "locations": extracted_info["locations"],
+                    "key_quotes": extracted_info["key_quotes"]
                 }
             }
         except Exception as e:

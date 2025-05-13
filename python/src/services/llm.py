@@ -119,8 +119,8 @@ class LLMService:
         format_instructions = self.sentiment_parser.get_format_instructions()
         
         articles_text = "\n\n".join([
-            f"Article {i+1}:\nTitle: {article.get('title', 'No title')}\n"
-            f"Description: {article.get('description', 'No description')}"
+            f"Article {i+1}:\nTitle: {article['title']}\n"
+            f"Description: {article['description']}"
             for i, article in enumerate(articles)
         ])
         
