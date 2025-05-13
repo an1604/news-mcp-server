@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import importlib
 import sys
 
-# Add the parent directory to sys.path to ensure imports work correctly
 sys.path.insert(0, str(Path(__file__).parents[1]))
 
 

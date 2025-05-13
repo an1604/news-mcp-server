@@ -44,7 +44,7 @@ class LLMService:
                 raise ValueError("No OpenAI API key provided in configuration")
                 
             return ChatOpenAI(
-                temperature=0.1,
+                temperature=config.TEMPERATURE,
                 model_name="gpt-4o-mini",
                 openai_api_key=config.OPENAI_API_KEY
             )

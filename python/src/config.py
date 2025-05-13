@@ -20,8 +20,9 @@ class Config:
         """Initialize config by loading values from environment variables."""
         self.NEWSAPI_API_KEY = os.getenv("NEWSAPI_API_KEY")
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+        self.TEMPERATURE = os.getenv("TEMPERATURE")
         
         logger.info(f"Config initialized. OPENAI_API_KEY loaded: {bool(self.OPENAI_API_KEY)}")
         logger.info(f"Config initialized. NEWSAPI_API_KEY loaded: {bool(self.NEWSAPI_API_KEY)}")
-
+        logger.info(f"Config initialized. TEMPERATURE loaded: {bool(self.TEMPERATURE)}")
 config = Config()
