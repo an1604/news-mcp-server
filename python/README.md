@@ -79,3 +79,6 @@ pytest
 
 - News API has a limit of 100 requests per day on the free tier
 - Use the OpenAI API calls efficiently to manage costs 
+
+## Demo
+<video src="python\mcp-proof.mp4" controls width="640" height="360"></video>
