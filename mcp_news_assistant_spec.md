@@ -266,7 +266,7 @@ python/
 │   │   └── sentiment_tool.py    # extract_key_info_and_sentiment implementation
 │   └── utils/
 │       ├── __init__.py
-│       ├── cache.py             # Caching utilities
+│       ├── cache.py             # Caching utilities (BONUS - THIS IS NOT A PART OF THE REQUIERMENTS!!)
 │       └── logging.py           # Logging configuration
 ├── tests/
 │   ├── __init__.py
