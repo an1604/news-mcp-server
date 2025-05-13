@@ -40,8 +40,8 @@ def setup_test_env():
         load_dotenv(dotenv_path=env_path, override=True)
         print(f"Loaded environment variables from {env_path}")
         
-        news_key = os.environ.get('NEWSAPI_API_KEY', '')
-        openai_key = os.environ.get('OPENAI_API_KEY', '')
+        news_key = os.environ['NEWSAPI_API_KEY']
+        openai_key = os.environ['OPENAI_API_KEY']
         print(f"NEWSAPI_API_KEY loaded: {bool(news_key)} (starts with: {news_key[:4] if news_key else 'None'}...)")
         print(f"OPENAI_API_KEY loaded: {bool(openai_key)} (starts with: {openai_key[:4] if openai_key else 'None'}...)")
     else:

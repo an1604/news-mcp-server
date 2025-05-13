@@ -41,13 +41,13 @@ def search_news(query: str, language: str, page_size: int) -> Dict[str, Any]:
         )
         
         formatted_articles = []
-        for article in news_data.get("articles", []):
+        for article in news_data["articles"]:
             formatted_article = {
-                "title": article.get("title", ""),
-                "description": article.get("description", ""),
-                "url": article.get("url", ""),
-                "source_name": article.get("source", {}).get("name", ""),
-                "published_at": article.get("publishedAt", "")
+                "title": article["title"],
+                "description": article["description"],
+                "url": article["url"],
+                "source_name": article["source"]["name"],
+                "published_at": article["publishedAt"]
             }
             formatted_articles.append(formatted_article)
         

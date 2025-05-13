@@ -13,7 +13,7 @@ class TestSearchNewsIntegration(unittest.TestCase):
     
     def setUp(self):
         """Set up test with a fresh config and skip tests if no API key is available."""
-        self.api_key = os.environ.get('NEWSAPI_API_KEY')
+        self.api_key = os.environ['NEWSAPI_API_KEY']
         
         if not self.api_key:
             self.skipTest("NEWSAPI_API_KEY not available in environment")
