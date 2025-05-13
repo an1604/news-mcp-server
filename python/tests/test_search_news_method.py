@@ -2,12 +2,12 @@ import unittest
 from unittest.mock import patch, MagicMock
 import sys
 import os
-from python.services.search_news import search_news
+from src.tools.search_news import search_news
 
 class TestSearchNews(unittest.TestCase):
     
-    @patch('python.services.search_news.NewsApiClient')
-    @patch('python.services.search_news.config')
+    @patch('src.tools.search_news.NewsApiClient')
+    @patch('src.tools.search_news.config')
     def test_successful_search(self, mock_config, mock_newsapi):
         # Mock the config to return a valid API key
         mock_config.NEWSAPI_API_KEY = "test_api_key"
@@ -67,7 +67,7 @@ class TestSearchNews(unittest.TestCase):
         self.assertEqual(result["articles"][0]["source_name"], "Test Source 1")
         self.assertEqual(result["articles"][0]["published_at"], "2023-01-01T12:00:00Z")
         
-    @patch('python.services.search_news.config')
+    @patch('src.tools.search_news.config')
     def test_missing_api_key(self, mock_config):
         mock_config.NEWSAPI_API_KEY = None
         
@@ -83,8 +83,8 @@ class TestSearchNews(unittest.TestCase):
         self.assertIn("error", result)
         self.assertEqual(result["error"], "Query parameter is required")
     
-    @patch('python.services.search_news.NewsApiClient')
-    @patch('python.services.search_news.config')
+    @patch('src.tools.search_news.NewsApiClient')
+    @patch('src.tools.search_news.config')
     def test_api_exception(self, mock_config, mock_newsapi):
         # Mock the config to return a valid API key so we get past the API key check
         mock_config.NEWSAPI_API_KEY = "test_api_key"

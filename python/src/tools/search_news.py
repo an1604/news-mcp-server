@@ -1,6 +1,6 @@
 import logging
 from typing import Dict, Any
-from python.src.config import config
+from src.config import config
 from newsapi.newsapi_client import NewsApiClient
 
 logger = logging.getLogger(__name__)
