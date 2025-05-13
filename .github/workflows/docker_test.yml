@@ -35,11 +35,20 @@ jobs:
             -e PORT=3000 \
             news-assistant:test
           
-          # Give the container time to start
           sleep 5
-          
-          # Check if container is running
           docker ps
-          
-          # Check container logs for any startup errors
           docker logs news-test 
+
+      - name: Verify container is running
+        run: |
+          for i in {1..5}; do
+            if docker ps | grep -q news-test && ! docker ps | grep -q "Exited"; then
+              echo "Container is running!"
+              exit 0
+            fi
+            echo "Waiting for container..."
+            sleep 5
+          done
+          echo "Container failed to start properly"
+          docker logs news-test
+          exit 1 
