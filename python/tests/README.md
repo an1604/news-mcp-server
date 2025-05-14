@@ -89,24 +89,3 @@ The tests are organized into these categories:
 2. **Integration Tests** - Testing interactions between components
 3. **API Tests** - Testing external API interactions (NewsAPI, OpenAI)
 4. **Error Handling Tests** - Testing error conditions and edge cases
-
-## Writing New Tests
-
-When adding new tests:
-
-1. Follow the naming convention: `test_<module_name>.py`
-2. Use pytest fixtures from `conftest.py` where appropriate
-3. Mock external dependencies to avoid API calls in unit tests
-4. Include both happy path and error cases
-5. Use the `@pytest.mark.skip_if_no_openai` marker for tests that require API keys
-
-## Skipping Tests
-
-Some tests require API keys. If these are not available, the tests will be automatically skipped:
-
-```python
-@pytest.mark.skip_if_no_openai
-def test_that_needs_openai_api():
-    # This test will be skipped if OPENAI_API_KEY is not available
-    pass
-``` 

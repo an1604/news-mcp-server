@@ -19,7 +19,6 @@ mcp.tool()(search_news)
 mcp.tool()(extract_information_from_article)
 mcp.tool()(extract_key_info_and_sentiment)
 
-
 if __name__ == "__main__":
     logger.info("Starting MCP server for news assistant")
     mcp.run(transport="sse", host="0.0.0.0", port=config.PORT, path="/")
