@@ -1,2 +1,5 @@
 pytest
+pytest-cov
+docker
+requests
 -r requirements.txt
