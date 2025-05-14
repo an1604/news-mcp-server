@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 class TestToolsEdgeCases:
     """Tests for edge cases in the MCP tools."""
 
+    @pytest.mark.skip_if_no_openai
     def test_extract_tool_invalid_title(self):
         """Test extract_tool with invalid title parameter."""
         from src.tools.extract_tool import extract_information_from_article
@@ -39,6 +40,7 @@ class TestToolsEdgeCases:
         assert kwargs["q"] == "test<script>alert(1)</script>"
         assert "articles" in result
 
+    @pytest.mark.skip_if_no_openai
     @patch('src.tools.sentiment_tool.search_news')
     @patch('src.tools.sentiment_tool.llm_service')
     def test_sentiment_tool_with_max_articles(self, mock_llm_service, mock_search_news):
@@ -62,6 +64,7 @@ class TestToolsEdgeCases:
         assert args[0] == "test"  # query
         assert len(args[1]) == 10  # articles list length
         
+    @pytest.mark.skip_if_no_openai
     def test_invalid_max_articles_parameter(self):
         """Test sentiment tool with invalid max_articles_to_analyze."""
         from src.tools.sentiment_tool import extract_key_info_and_sentiment
